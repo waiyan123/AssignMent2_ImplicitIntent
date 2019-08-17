@@ -25,7 +25,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 
-import itachi_waiyan.com.assignment2_implicitintent.util.Util;
+import itachi_waiyan.com.assignment2_implicitintent.util.Constants;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -107,19 +107,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void requestPermission(){
         ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{Util.ALARM_PERMISSION},1);
+                new String[]{Constants.ALARM_PERMISSION},1);
     }
     public void captureVideo(){
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, Util.REQUEST_VIDEO_CAPTURE);
+            startActivityForResult(intent, Constants.REQUEST_VIDEO_CAPTURE);
         }
     }
     public void selectContact() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
         if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, Util.REQUEST_SELECT_CONTACT);
+            startActivityForResult(intent, Constants.REQUEST_SELECT_CONTACT);
         }
     }
     public void webSearch(){
@@ -132,14 +132,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == Util.REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK){
+        if(requestCode == Constants.REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK){
             videoView.setVisibility(View.VISIBLE);
             videoView.setVideoURI(data.getData());
             videoView.setMediaController(new MediaController(this));
             videoView.requestFocus();
             videoView.start();
         }
-        else if(requestCode == Util.REQUEST_SELECT_CONTACT && resultCode == RESULT_OK){
+        else if(requestCode == Constants.REQUEST_SELECT_CONTACT && resultCode == RESULT_OK){
 
             Uri contactUri = data.getData();
             Log.d("uri---",contactUri.toString());

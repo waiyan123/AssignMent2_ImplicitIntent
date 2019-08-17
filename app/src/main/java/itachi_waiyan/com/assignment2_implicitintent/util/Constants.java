@@ -1,6 +1,6 @@
 package itachi_waiyan.com.assignment2_implicitintent.util;
 
-public class Util {
+public class Constants {
 
     public static final String ALARM_PERMISSION = "com.android.alarm.permission.SET_ALARM";
     public static final int REQUEST_VIDEO_CAPTURE = 1;
