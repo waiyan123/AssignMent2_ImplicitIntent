@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AssignMent2_ImplicitIntent</string>
+    <string name="timer">Create a Timer</string>
+    <string name="calendar">Add a calendar</string>
+    <string name="video">Capture a video</string>
+    <string name="contact">Select a contact</string>
+    <string name="web">Web search</string>
+</resources>
